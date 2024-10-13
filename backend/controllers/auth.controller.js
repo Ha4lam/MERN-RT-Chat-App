@@ -52,6 +52,7 @@ export const signup = async (req, res) => {
 };
 export const login = async (req, res) => {
     try{
+        console.log(req.body); // Log the incoming data
         const { userName, password } = req.body;
         const user = await User.findOne({userName});
         const isPasswordCorrect = await bcrypt.compare(password, user?.password || "");
